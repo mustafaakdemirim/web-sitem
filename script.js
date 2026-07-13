@@ -5,6 +5,7 @@ $(document).ready(function (){
 
 
         let gorev = $('#yeniGorev').val() //Inputtaki Yazıyı Al
+        
 
         if(gorev.trim() !== "") //Eğer Boş Bırakılmadıysa
         {
