@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1,button,input{
+            
+            display: block;
+            margin-bottom: 25px;
+
+        }
+
+        .alindi{
+            text-decoration-line: line-through; /*Üzerini Çiz*/
+            color:grey;
+            opacity: 0.6;
+            transition: 0.8s;
+        }
+
+
+        .insta-box {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px; /* Kenarları yumuşatmak için */
+            
+            /* Instagram Degrade Geçişi */
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285ae1 90%);
+            
+            /* Yazı stili */
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            }
+
+            .silBtn{
+                display: inline;
+            }
+    </style>
+</head>
+<body>
+    
+<div class="insta-box"><span>Instagram</span></div>
+
+    <h1 id="baslik">Merhaba Arkadaşlar</h1>
+    <!-- <button id="gizleBtn">Yazıyı Gizle</button>
+    <button id="gosterBtn">Yazıyı Göster</button> -->
+
+    <button id="ggBtn">Yazıyı Göster/Gizle</button>
+
+
+    <p id="karsila"></p>
+    <input type="text" id="isimInput" placeholder="Ad:">
+
+    <button id="degistirBtn">Ismi Degistir</button>
+
+
+
+    <ul id="alisverisListesi">
+        <li>Kırmızı Lahana</li>
+        <li>Karnıbahar</li>
+        <li>Brokoli</li>
+        <li>Big King</li>
+        <li>Double Whooper Menü</li>
+        <li>İskender Ama Acı Soslu HD İSKENDERDEN OLACAK</li>
+        <li>PATATES CİPSİ LAYS OLSUN AMA BAHARATLI</li>
+    </ul>
+    
+    <br><br><br><br>
+
+    <div id="bildirimKutusu" style="display: none; padding: 10px;">İşlem Başarılı!</div>
+    <button id="bildirimBtn">Bildirim Göster</button>
+
+
+
+<br><br><br><br>
+
+
+
+<input type="text" id="yeniGorev" placeholder="Yeni Görev Ekle...">
+<button id="ekleBtn">Listeye Ekle</button>
+
+
+<ul id="dinamikListe">
+
+</ul>
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <!-- <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>   -->
+
+
+
+
+    <script src="jquery-4.0.0.min.js"></script>
+
+
+
+
+    <script src="script.js"></script>
+
+    <script>
+
+        //Bu HTML Dökümanı yani bu HTML sayfası tam anlamıyla yüklenip hazır olduğunda çalışsın içerisindeki kodlar.
+        $(document).ready(function (){
+
+               // İd'si gizleBtn olan elemente tıklandığında İd si baslik olan elementi 500 milisaniyede sayfada görünüyorsa gizler.
+            $('#gizleBtn').click(function (){
+                $('#baslik').hide(500)
+            })
+
+        // İd'si gosterBtn olan elemente tıklandığında İd si baslik olan elementi 500 milisaniyede sayfada gizliyse gösterir.
+            $('#gosterBtn').click(function (){
+                $('#baslik').show(500)
+            })
+
+
+            // İd'si ggBtn olan elemente tıklandığında İd si baslik olan elementi 500 milisaniyede sayfada gizliyse gösterir, görünüyorsa gizler. 
+            $('#ggBtn').click(function (){
+                $('#baslik').toggle(500)
+            })
+
+
+            $('#degistirBtn').click(function (){
+
+                let isim = $('#isimInput').val()
+
+                $('#karsila').text(`Merhaba ${isim}!`)
+
+            })
+
+
+            $('#alisverisListesi li').click(function(){
+                // 
+
+                $(this).toggleClass('alindi')
+            })
+
+            $('#bildirimBtn').click(function(){
+                
+                $('#bildirimKutusu')
+                .slideDown(500) //Önce Yukarıdan Aşağıya Doğru Kayarak Açılır
+                .css('background','linear-gradient(45deg, #fdf497 0%,#fdf497 5%,#fd5949 45%, #dd249f 60%, #285ae1 90%)') //Arkaplanı Yeşil Olsun
+                .css('color','white')
+                .delay(2000) //Ekranda 2 Saniye Beklesin
+                .fadeOut(1000) //Yavaşça Kaybolarak Gizlensin
+            })
+
+            
+
+        })
+
+    </script>
+
+
+
+</body>
+</html>
